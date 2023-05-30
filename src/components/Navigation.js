@@ -2,15 +2,21 @@ import { useState } from 'react';
 import { SearchIcon, ShoppingBagIcon } from '@heroicons/react/outline';
 import { Dialog } from '@headlessui/react';
 import { MenuIcon as Bars3Icon, XIcon } from '@heroicons/react/outline';
+import { useNavigate } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Women', href: '#' },
-  { name: 'Men', href: '#' },
-  { name: 'Our Story', href: '#' },
+  { name: 'Women', href: '/women' },
+  { name: 'Men', href: '/men' },
+  { name: 'Our Story', href: '/our-story' },
 ];
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigation = (href) => {
+    navigate(href);
+  }
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -30,13 +36,13 @@ export default function Navigation() {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               {navigation.map((item, itemIdx) => (
-                <a
+                <button
                   key={itemIdx}
-                  href={item.href}
+                  onClick={() => handleNavigation(item.href)}
                   className="text-white hover:text-black px-3 py-2 rounded-md text-sm font-medium uppercase"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
             </div>
           </div>
@@ -96,22 +102,22 @@ export default function Navigation() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <button
                       key={item.name}
-                      href={item.href}
+                      onClick={() => handleNavigation(item.href)}
                       className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </button>
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="/signin"
+                  <button
+                    onClick={() => handleNavigation('/signin')}
                     className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -121,4 +127,5 @@ export default function Navigation() {
     </header>
   );
 }
+
 
