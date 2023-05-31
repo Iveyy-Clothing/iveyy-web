@@ -1,5 +1,5 @@
 import React from 'react';
-import SlideShow from './Slideshow';  // Import SlideShow component
+import SlideShow from './Slideshow';
 import ShopCategory from './ShopCategory';
 import Footer from './Footer';
 import HomePageProducts from './HomePageProducts';
@@ -8,12 +8,12 @@ import HomePageProducts from './HomePageProducts';
 const HomePage = () => {
   return (
     <div>
-        <SlideShow />
-        <ShopCategory />
-        <HomePageProducts />
-        <Footer />
+      <SlideShow />
+      <ShopCategory />
+      <HomePageProducts />
+      <Footer />
     </div>
   );
-}
+};
 
 export default HomePage;

@@ -29,8 +29,6 @@ const images = [
     );
   };
 
-  
-
   export default function Slideshow() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
