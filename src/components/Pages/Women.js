@@ -5,7 +5,7 @@ import Navigation from '../Navigation';
 const Women = () => {
   return (
     <div>
-      <Navigation />
+      <Navigation backgroundColor='white' />
       <h1>Women</h1>
     </div>
   );

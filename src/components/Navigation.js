@@ -10,17 +10,19 @@ const navigation = [
   { name: 'Our Story', href: '/our-story' },
 ];
 
-export default function Navigation() {
+export default function Navigation({ backgroundColor }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleNavigation = (href) => {
     navigate(href);
-  }
+  };
+
+  const isDarkBackground = backgroundColor === 'white';
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="bg-opacity-0 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8" aria-label="Global">
+    <header className={`absolute inset-x-0 top-0 z-50 ${backgroundColor}`}>
+      <nav className={`bg-opacity-0 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8`} aria-label="Global">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <a href="/">
@@ -39,7 +41,7 @@ export default function Navigation() {
                 <button
                   key={itemIdx}
                   onClick={() => handleNavigation(item.href)}
-                  className="text-white hover:text-black px-3 py-2 rounded-md text-sm font-medium uppercase"
+                  className={`text-${isDarkBackground ? 'black' : 'white'} hover:text-black px-3 py-2 rounded-md text-sm font-medium uppercase`}
                 >
                   {item.name}
                 </button>
@@ -51,7 +53,7 @@ export default function Navigation() {
             {/* Mobile menu button */}
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-black hover:bg-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className={`inline-flex items-center justify-center p-2 rounded-md text-${isDarkBackground ? 'black' : 'white'} hover:text-black hover:bg-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -61,17 +63,17 @@ export default function Navigation() {
 
           <div className="absolute inset-y-0 right-0 flex items-center sm:static">
             {/* Search */}
-            <a href="#" className="p-2 text-white hover:text-black uppercase sm:block hidden">
+            <a href="#" className={`p-2 text-${isDarkBackground ? 'black' : 'white'} hover:text-black uppercase sm:block hidden`}>
               <SearchIcon className="h-6 w-6" aria-hidden="true" />
             </a>
             {/* Cart */}
             <div className="ml-4 flow-root sm:block hidden">
               <a href="#" className="group -m-2 p-2 flex items-center">
                 <ShoppingBagIcon
-                  className="h-6 w-6 flex-shrink-0 text-white group-hover:text-black"
+                  className={`h-6 w-6 flex-shrink-0 text-${isDarkBackground ? 'black' : 'white'} group-hover:text-black`}
                   aria-hidden="true"
                 />
-                <span className="ml-2 text-sm font-medium text-white group-hover:text-black">0</span>
+                <span className={`ml-2 text-sm font-medium text-${isDarkBackground ? 'black' : 'white'} group-hover:text-black`}>0</span>
                 <span className="sr-only">items in cart, view bag</span>
               </a>
             </div>
@@ -127,5 +129,3 @@ export default function Navigation() {
     </header>
   );
 }
-
-

@@ -3,8 +3,8 @@ import React from "react"
 const products = [
     {
       id: 1,
-      name: 'Black Basic Tee',
-      price: '$32',
+      name: <span style={{fontWeight: "lighter", fontSize: "small"}}>{'BLACK BASIC TEE'}</span>,
+      price: <span style={{fontWeight: "lighter", fontSize: "small"}}>{'$32'}</span>,
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-03-favorite-01.jpg',
       imageAlt: "Model wearing women's black cotton crewneck tee.",
@@ -27,7 +27,7 @@ const products = [
           <div className="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-0 lg:gap-x-8">
             {products.map((product) => (
               <div key={product.id} className="group relative">
-                <div className="h-96 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2 group-hover:opacity-75 sm:h-auto">
+                <div className="h-96 w-full overflow-hidden sm:aspect-h-3 sm:aspect-w-2 group-hover:opacity-75 sm:h-auto">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
@@ -55,4 +55,4 @@ const products = [
       </div>
     )
   }
-  
+

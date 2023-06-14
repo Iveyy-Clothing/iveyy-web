@@ -57,7 +57,7 @@ const ImageCard = ({ media }) => {
           {media.alt}
         </Link>
         <div className="absolute top-0 left-0 w-full">
-          <Navigation />
+          <Navigation backgroundColor="white" />
         </div>
       </div>
     );
